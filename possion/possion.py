@@ -7,7 +7,7 @@ from lmutils import debug_info
 from possion_utils import Utils
 
 class possion():
-    def __init__(self, prepic, bakpic, cp2pt, zone_width=20):
+    def __init__(self, prepic, bakpic, cp2pt, zone_width=50):
         """
         prepic: 
         bakpic:
@@ -90,7 +90,6 @@ class possion():
             tmp[0] -= pic[p[0], p[1]][0]
             tmp[1] -= pic[p[0], p[1]][1]
             tmp[2] -= pic[p[0], p[1]][2]
-            #print(debug_info(), tmp)
 
         self.matb[0].append(tmp[0])
         self.matb[1].append(tmp[1])
