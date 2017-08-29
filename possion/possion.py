@@ -138,10 +138,10 @@ class possion():
                             tmp1 = list((j+item-self.cp2h, i-self.cp2w) for item in bdy[0])
                             tmp2 = list((j-self.cp2h, i-self.cp2w+item) for item in bdy[1])
 
-                            self.__b_mat_set_v__(self.prepic, (j-self.cp2h, i-self.cp2w), tmp1, tmp2)
+                            self.__b_mat_set_v__(self.prepic, (j-self.cp2h, i-self.cp2w), tmp1+tmp2)
                         else:
                             tmp1 = list((j+item, i) for item in bdy[0])
-                            tmp2 = list((j+item, i) for item in bdy[1])
+                            tmp2 = list((j, i+item) for item in bdy[1])
 
                             self.__b_mat_set_v__(self.bakpic, (j, i), tmp1+tmp2)
                     else:
@@ -187,7 +187,6 @@ class possion():
 
         index = 0
         for pt in self.bdylist:
-            continue
             self.__sparse_mat_set_v__(index+self.matAw*self.matAh, (pt[0]-self.conAfromH)*self.matAw+pt[1]-self.conAfromW, 1)
             index += 1
             self.matb[0].append(self.bakpic[pt[0], pt[1]][0])
@@ -209,7 +208,7 @@ class possion():
         print(debug_info(), self.matAw*self.matAh)
         self.matA = coo_matrix( 
             (self.data, (self.row, self.col) ), 
-            shape=(self.matAw*self.matAh, self.matAh*self.matAw)
+            shape=(self.matAw*self.matAh+len(self.bdylist), self.matAh*self.matAw)
             )
         print(debug_info(), self.counts_)
 
@@ -249,9 +248,9 @@ class possion():
         #@for arr in matA.toarray():
         #    print(list(arr))
         #print(debug_info(), self.matA.shape())
-        tmp0 = lsqr(self.matA, self.matb[0], show=True, atol=1.0e-9, btol=1.0e-9, calc_var=False)
-        tmp1 = lsqr(self.matA, self.matb[1], show=True, atol=1.0e-9, btol=1.0e-9, calc_var=False)
-        tmp2 = lsqr(self.matA, self.matb[2], show=True, atol=1.0e-9, btol=1.0e-9, calc_var=False)
+        tmp0 = lsqr(self.matA, self.matb[0], show=True, atol=1.0e-8, btol=1.0e-8)
+        tmp1 = lsqr(self.matA, self.matb[1], show=True, atol=1.0e-8, btol=1.0e-8)
+        tmp2 = lsqr(self.matA, self.matb[2], show=True, atol=1.0e-8, btol=1.0e-8)
 
         #print(debug_info() , tmp0)
         #print(debug_info() , self.matb[0])

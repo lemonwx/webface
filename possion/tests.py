@@ -9,7 +9,7 @@ try:
 except Exception as e:
 	t = (500, 500)
 
-p = possion("pre.jpg", "bak.jpg", t)
+p = possion("transform.jpg", "bak.jpg", t)
 p.construct_mat()
 p.calc_x()
 

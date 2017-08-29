@@ -38,7 +38,7 @@ class Utils():
 
     def isinarea(self, p, react):
         print(debug_info(), react)
-        if p[0] in [react[0], react[2]] or p1 in [react[1], react[3]]:
+        if p[0] in [react[0], react[2]] or p[1] in [react[1], react[3]]:
             return True
         return False
 
