@@ -1,6 +1,8 @@
+"""possion utils"""
+
 from lmutils import debug_info
 class Utils():
-
+    """possion utils"""
     def __init__(self, conAfromH, conAfromW, conAtoH, conAtoW):
 
         self.conAtoH = conAtoH - 1
@@ -17,10 +19,10 @@ class Utils():
         }
 
         self.horn_chk = {
-            '({0},{1})'.format(self.conAfromW, self.conAfromH):(1,1),
-            '({0},{1})'.format(self.conAfromW, self.conAtoH):(-1,1),
-            '({0},{1})'.format(self.conAtoW, self.conAfromH):(1,-1),
-            '({0},{1})'.format(self.conAtoW, self.conAtoH):(-1,-1),
+            '({0},{1})'.format(self.conAfromW, self.conAfromH):(1, 1),
+            '({0},{1})'.format(self.conAfromW, self.conAtoH):(-1, 1),
+            '({0},{1})'.format(self.conAtoW, self.conAfromH):(1, -1),
+            '({0},{1})'.format(self.conAtoW, self.conAtoH):(-1, -1),
         }
 
     def isbdy(self, p):
