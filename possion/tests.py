@@ -1,7 +1,8 @@
-from django.test import TestCase
-
 # Create your tests here.
 import sys
+
+from django.test import TestCase
+
 from possion import possion
 
 try:
@@ -12,4 +13,3 @@ except Exception as e:
 p = possion("pre1.jpg", "bak.jpg", t)
 p.construct_mat()
 p.calc_x()
-
