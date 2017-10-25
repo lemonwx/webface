@@ -1,0 +1,302 @@
+{% extends 'org-base.html' %}
+{% load staticfiles %}
+{% block title %}机构首页{% endblock %}
+{% block page_path %}机构首页{% endblock %}
+{% block right_form %}
+<div class="right companycenter layout grouping" >
+		<div class="head">
+			<h1>全部课程</h1>
+			<a class="green fr more" href="org-detail-course.html">查看更多  >  </a>
+		</div>
+		<div class="brief group_list">
+
+                {% for course in courses %}
+                    <div class="module1_5 box">
+                        <a href="course-detail.html"><img width="214" src="{{ MEDIA_URL }}{{ course.img }}"/></a>
+                        <div class="des">
+                            <a href="course-detail.html"><h2>{{ course.name }}</h2></a>
+                            <span class="fl">课时：<i class="key">{{ course.learn_times }}</i></span>
+                            <span class="fr">参加人数：{{ course.students }}</span>
+                        </div>
+                        <div class="bottom">
+                            <span class="fl">{{ course.course_org.name }}</span>
+                            <span class="star fr  notlogin" data-favid="13"  data-fav-type="4">
+                                0
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+
+		</div>
+	</div>
+<div class="right companycenter layout" >
+    <div class="head">
+        <h1>机构教师</h1>
+        <a class="green fr more" href="org-detail-teachers.html">查看更多  >  </a>
+    </div>
+    {% for teacher in teachers %}
+    <div class="diarys">
+        <div class="module5 share company-diary-box" style="padding:10px 0;">
+            <div class="left">
+                <img class="pic" src="{{ MEDIA_URL }}{{ teacher.img }}"/>
+                <p>昵称：{{ teacher.name }}</p>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <div class="fl">
+                        <span>教学特点:{{ teacher.points }}</span></br>
+                        <span>教龄:{{ teacher.work_years }}</span></br>
+                        <span>加入时间:{{ teacher.add_time}}</span></br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+</div>
+<div class="right companycenter layout" >
+    <div class="head">
+        <h1>机构介绍</h1>
+        <a class="green fr more" href="org-detail-desc.html">查看更多  >  </a>
+    </div>
+    <div class="cont">&nbsp; &nbsp; <p>{{ org.desc }}</p>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

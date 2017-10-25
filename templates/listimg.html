@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}选择图片{% endblock%}
+{% block content %}
+
+<form method="post" enctype="multipart/form-data" id="add_possion_task_form" >
+    {% for img in imgs %}
+        <input type="radio" value="pre_{{ img.id }}" name="title_{{ forloop.counter }}"/>前景
+        <input type="radio" value="bak_{{ img.id }}" name="title_{{ forloop.counter }}"/>背景
+        <img width="200" height="120" src="{{ MEDIA_URL }}{{ img.image }}"></br>
+    {% endfor %}
+{% csrf_token %}
+<input  type="submit" value="ok" id="add_possion_task">
+</form>
+{% endblock %}
+
+
